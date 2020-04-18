@@ -16,10 +16,19 @@ class App extends Component{
   }  
 
     render(){
+        
         return(
         <div>
             <h2>Gift Giver</h2>
+            <div className="gift-list">
+                {this.state.gifts.map(gift=>{
+                    return(
+                        <div key={gift.id}></div>
+                    )
+                })}
+            </div>
             <button className="btn btn-primary btn-add" onClick={this.addGift}>Add Gift</button>
+            
         </div>
         );
     }
