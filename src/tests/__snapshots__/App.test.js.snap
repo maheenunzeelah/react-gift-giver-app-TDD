@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`It renders correctly 1`] = `
+<div>
+  <h2>
+    Gift Giver
+  </h2>
+  <button
+    className="btn btn-primary btn-add"
+    onClick={[Function]}
+  >
+    Add Gift
+  </button>
+</div>
+`;
