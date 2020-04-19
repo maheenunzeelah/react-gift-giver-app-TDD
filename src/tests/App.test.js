@@ -39,8 +39,30 @@ describe("App", () => {
             expect(app.find('.gift-list').children().length).toEqual(1);
 
         })
+
+        it("creates `Gift` component",()=>{
+            //Checks if Gift component exists or not
+            expect(app.find('Gift').exists()).toBe(true)
+        })
+
+        describe("User removing an added gift",()=>{
+            const id=1
+            beforeEach(()=>{
+                app.instance().removeGift(id);
+            })
+            it("Gift `state` changes",()=>{
+                expect(app.state().gifts).toEqual([]);
+            })
+        })
     })
 })
+
+
+
+
+
+
+
 //     it("adds new gift when clicking `add gift`button", () => {
 //         app.find('.btn-add').simulate('click');
 //         expect(app.state().gifts).toEqual([{ id: 1 }])

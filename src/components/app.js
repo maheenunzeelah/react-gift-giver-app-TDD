@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import Gift from './gifts';
 
 class App extends Component{
     constructor(props){
@@ -14,6 +15,10 @@ class App extends Component{
    gifts.push({id:max_id+1});
    this.setState({gifts})
   }  
+  removeGift=(id)=>{
+      const gifts=this.state.gifts.filter(gift=>gift.id!==id)
+      this.setState({gifts});
+  }
 
     render(){
         
@@ -21,9 +26,11 @@ class App extends Component{
         <div>
             <h2>Gift Giver</h2>
             <div className="gift-list">
+             {/*Whenever add-gift button is clickes state updates and Gift component rendered*/}
                 {this.state.gifts.map(gift=>{
                     return(
-                        <div key={gift.id}></div>
+                        //We are shallowy rendering app component in App.test.js file so snapshot is not changed and it doesn't render full content just its outer most JSX that is div
+                        <Gift key={gift.id} gift={gift} removeGift={this.removeGift}/>
                     )
                 })}
             </div>
