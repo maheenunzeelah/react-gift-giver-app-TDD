@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import Gift from './gifts';
+import {max_number} from './../helper'
 
 class App extends Component{
     constructor(props){
@@ -10,13 +11,11 @@ class App extends Component{
     }
   addGift=()=>{
    const {gifts}=this.state;
-   const ids=gifts.map(gift=>gift.id);
-   const max_id=ids.length>0?Math.max(...ids):0
-   gifts.push({id:max_id+1});
+   gifts.push({id:max_number(gifts.map(gift=>gift.id))+1});
    this.setState({gifts})
   }  
   removeGift=(id)=>{
-      const gifts=this.state.gifts.filter(gift=>gift.id!==id)
+      const gifts=this.state.gifts.filter(  gift=>gift.id!==id)
       this.setState({gifts});
   }
 
